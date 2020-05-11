@@ -18,6 +18,18 @@ Includes below dependencies:
 - slf4j, log4j, logback
 - yaml
 
+## spring-boot-starter-test
+
+Includes below dependencies:
+
+- JUnit 4 & 5
+- Spring Test & Spring Boot Test
+- AssertJ
+- Hamcrest
+- Mockito
+- JSONassert
+- JsonPath
+
 ## Actuator
 
 Get health status:
