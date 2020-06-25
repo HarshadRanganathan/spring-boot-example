@@ -1,3 +1,9 @@
+## Pre-requisites
+
+This project uses `lombok` dependency and requires `lombok` plugin to be installed from marketplace to resolve IDE compilation issues.
+
+## Commands
+
 Type `mvn clean spring-boot:run` from the root project directory to start the application.
 
 Type `mvn clean spring-boot:run --debug` from the root project directory to start the application with debug logs for a selection of core loggers and logs a conditions report to the console.
@@ -5,6 +11,14 @@ Type `mvn clean spring-boot:run --debug` from the root project directory to star
 Type `mvn clean package` to build the jar.
 
 Type `java -jar target/spring-boot-example-1.0-SNAPSHOT.jar` to run the packaged application.
+
+## Profiles
+
+Set jvm property `-Dspring.profiles.active=prod` to use `application-prod.properties`
+
+## Logging
+
+Set jvm property `-Dlogging.level.com.springboot.example=debug` to override and enable debug logs for the class.
 
 ## spring-boot-starter-web
 
