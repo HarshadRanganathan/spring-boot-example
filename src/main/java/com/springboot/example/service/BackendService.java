@@ -16,11 +16,9 @@ public class BackendService {
     private final ExampleProperties exampleProperties;
 
     @Autowired
-    public BackendService(ExampleProperties exampleProperties, RestTemplateBuilder restTemplateBuilder) {
+    public BackendService(ExampleProperties exampleProperties, RestTemplate restTemplate) {
         this.exampleProperties = exampleProperties;
-        this.restTemplate = restTemplateBuilder
-                .errorHandler(new RestTemplateErrorHandler())
-                .build();
+        this.restTemplate = restTemplate;
     }
 
     public ResponseEntity<String> backendCall() {

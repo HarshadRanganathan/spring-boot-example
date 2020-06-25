@@ -1,20 +1,13 @@
 package com.springboot.example.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public class CustomError {
 
-    private String errorCode;
-    private String errorMessage;
+    private final String errorCode;
+    private final String errorMessage;
 
-    public CustomError(String errorCode, String errorMessage) {
-        this.errorCode = errorCode;
-        this.errorMessage = errorMessage;
-    }
-
-    public String getErrorCode() {
-        return this.errorCode;
-    }
-
-    public String getErrorMessage() {
-        return this.errorMessage;
-    }
 }

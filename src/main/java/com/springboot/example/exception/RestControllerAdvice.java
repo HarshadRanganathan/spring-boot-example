@@ -18,7 +18,7 @@ public class RestControllerAdvice extends ResponseEntityExceptionHandler  {
 
     @ExceptionHandler(RuntimeException.class)
     @ResponseBody
-    ResponseEntity<?> handleControllerException(RuntimeException runtimeException, HttpServletRequest httpServletRequest) {
+    ResponseEntity<?> handleRuntimeException(RuntimeException runtimeException, HttpServletRequest httpServletRequest) {
         log.error(runtimeException.getMessage(), runtimeException);
         HttpStatus status = getStatus(httpServletRequest);
         return new ResponseEntity<Object>(new CustomError("1000", "Server error"), status);

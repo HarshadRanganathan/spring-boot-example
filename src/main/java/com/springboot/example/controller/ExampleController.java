@@ -1,6 +1,7 @@
 package com.springboot.example.controller;
 
 import com.springboot.example.exception.CustomException;
+import com.springboot.example.model.Person;
 import com.springboot.example.service.BackendService;
 import io.micrometer.core.annotation.Timed;
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +41,16 @@ public class ExampleController {
         return new ResponseEntity<Object>(response, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/person", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    @Timed
+    ResponseEntity<?> person() {
+        log.debug("Request received");
+        final Person person = new Person("Harshad", "Ranganathan");
+        return new ResponseEntity<Object>(person, HttpStatus.OK);
+    }
+
     @RequestMapping("/err")
+    @ResponseBody
     ResponseEntity<?> error() throws CustomException { throw new CustomException("Server error"); }
 }
