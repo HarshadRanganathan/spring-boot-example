@@ -27,7 +27,7 @@ public class BackendServiceTest {
         final RestTemplate restTemplate = new RestTemplate();
 
         server = MockRestServiceServer.createServer(restTemplate);
-        backendService = new BackendService(exampleProperties, restTemplate);
+        backendService = new BackendService(restTemplate, exampleProperties);
 
         final ExampleProperties.Backend backend = mock(ExampleProperties.Backend.class);
         when(exampleProperties.getBackend()).thenReturn(backend);
