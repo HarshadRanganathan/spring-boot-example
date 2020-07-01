@@ -6,11 +6,9 @@ import com.springboot.example.service.BackendService;
 import io.micrometer.core.annotation.Timed;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -24,33 +22,29 @@ public class ExampleController {
         this.backendService = backendService;
     }
 
-    @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
+    @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     ResponseEntity<?> home() {
         log.debug("Request received");
-        return new ResponseEntity<Object>("{\"message\": \"Hello World!\"}", HttpStatus.OK);
+        return ResponseEntity.ok("{\"message\": \"Hello World!\"}");
     }
 
-    @RequestMapping(value = "/backend", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
+    @GetMapping(value = "/backend")
     @Timed
     ResponseEntity<?> backend() {
         log.debug("Request received");
         final ResponseEntity<String> response = backendService.backendCall();
-        return new ResponseEntity<Object>(response, HttpStatus.OK);
+        return ResponseEntity.ok(response);
     }
 
-    @RequestMapping(value = "/person", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
+    @GetMapping(value = "/person")
     @Timed
     ResponseEntity<?> person() {
         log.debug("Request received");
         final Person person = new Person("Harshad", "Ranganathan");
-        return new ResponseEntity<Object>(person, HttpStatus.OK);
+        return ResponseEntity.ok(person);
     }
 
-    @RequestMapping("/err")
-    @ResponseBody
+    @GetMapping("/err")
     ResponseEntity<?> error() throws CustomException { throw new CustomException("Server error"); }
 }
