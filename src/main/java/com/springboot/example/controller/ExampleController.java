@@ -6,7 +6,6 @@ import com.springboot.example.service.BackendService;
 import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class ExampleController {
 
     private final BackendService backendService;
@@ -26,12 +25,11 @@ public class ExampleController {
         return ResponseEntity.ok("{\"message\": \"Hello World!\"}");
     }
 
-    @GetMapping(value = "/backend")
+    @GetMapping(value = "/backend", produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     ResponseEntity<?> backend() {
         log.debug("Request received");
-        final ResponseEntity<String> response = backendService.backendCall();
-        return ResponseEntity.ok(response);
+        return backendService.backendCall();
     }
 
     @GetMapping(value = "/person")

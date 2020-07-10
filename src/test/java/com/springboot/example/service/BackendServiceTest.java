@@ -31,14 +31,14 @@ public class BackendServiceTest {
 
         final ExampleProperties.Backend backend = mock(ExampleProperties.Backend.class);
         when(exampleProperties.getBackend()).thenReturn(backend);
-        when(backend.getUrl()).thenReturn("https://api.openweathermap.org/data/2.5/weather");
+        when(backend.getUrl()).thenReturn("https://www.googleapis.com/customsearch/v1");
     }
 
     @Test
     void testBackendCall() {
-        this.server.expect(requestTo("https://api.openweathermap.org/data/2.5/weather"))
-                .andRespond(withSuccess("{\"message\": \"Hello World!\"}", MediaType.APPLICATION_JSON));
+        this.server.expect(requestTo("https://www.googleapis.com/customsearch/v1"))
+                .andRespond(withSuccess("{\"kind\": \"customsearch\"}", MediaType.APPLICATION_JSON));
         String response = backendService.backendCall().getBody();
-        assertThat(response).isEqualTo("{\"message\": \"Hello World!\"}");
+        assertThat(response).isEqualTo("{\"kind\": \"customsearch\"}");
     }
 }

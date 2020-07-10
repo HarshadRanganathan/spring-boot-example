@@ -1,9 +1,10 @@
 package com.springboot.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-@Data
+@Getter
+@RequiredArgsConstructor
 public class Person {
 
     private final String firstName;

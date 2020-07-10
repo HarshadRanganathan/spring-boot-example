@@ -4,6 +4,8 @@ This project uses `lombok` dependency and requires `lombok` plugin to be install
 
 ## Commands
 
+Type `mvn clean install` to build the project.
+
 Type `mvn clean spring-boot:run` from the root project directory to start the application.
 
 Type `mvn clean spring-boot:run --debug` from the root project directory to start the application with debug logs for a selection of core loggers and logs a conditions report to the console.
@@ -57,3 +59,9 @@ Get build and git info:
 Get metrics for an endpoint:
 
 ``http://localhost:8080/actuator/metrics/http.server.requests?tag=uri:/``
+
+## Spring Cloud Contract
+
+Spring cloud contracts are available in `test/resources/contracts` folder.
+
+When you run maven build, the contract test class is created in `generated-test-sources` folder and the stubs are available in `target/stubs` folder. 
