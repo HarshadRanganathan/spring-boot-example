@@ -64,4 +64,6 @@ Get metrics for an endpoint:
 
 Spring cloud contracts are available in `test/resources/contracts` folder.
 
-When you run maven build, the contract test class is created in `generated-test-sources` folder and the stubs are available in `target/stubs` folder. 
+When you run maven build, the contract test class will be created in `generated-test-sources` folder and the stubs in `target/stubs` folder. 
+
+`mvn package` will generate the `stubs` jar which can be deployed to any repository.

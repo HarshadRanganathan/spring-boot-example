@@ -19,6 +19,14 @@
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub harshadranganathan Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/harshadranganathan/spring-boot-example</url>
+        </repository>
+    </distributionManagement>
+
     <!-- Inherit spring boot from either parent or dependency management -->
 
 <!--    <parent>-->
@@ -163,8 +171,9 @@
                 <artifactId>spring-cloud-contract-maven-plugin</artifactId>
                 <extensions>true</extensions>
                 <configuration>
-                    <baseClassForTests>com.springboot.example.contractTest.BaseTestClass</baseClassForTests>
+                    <testMode>EXPLICIT</testMode>
                     <testFramework>JUNIT5</testFramework>
+                    <baseClassForTests>com.springboot.example.contractTest.BaseTestClass</baseClassForTests>
                 </configuration>
             </plugin>
 
