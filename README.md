@@ -18,6 +18,10 @@ Type `java -jar target/spring-boot-example-1.0-SNAPSHOT.jar` to run the packaged
 
 Set jvm property `-Dspring.profiles.active=prod` to use `application-prod.properties`
 
+## Paths
+
+Check ``ExampleController`` class for list of supported paths.
+
 ## Logging
 
 Set jvm property `-Dlogging.level.com.springboot.example=debug` to override and enable debug logs for the class.
@@ -28,7 +32,6 @@ Includes below dependencies:
 
 - spring-webmvc
 - spring-web
-- hibernate-validator
 - tomcat-embed-[core, el, websocket]
 - fasterxml jackson
 - slf4j, log4j, logback
@@ -67,3 +70,9 @@ Spring cloud contracts are available in `test/resources/contracts` folder.
 When you run maven build, the contract test class will be created in `generated-test-sources` folder and the stubs in `target/stubs` folder. 
 
 `mvn package` will generate the `stubs` jar which can be deployed to any repository.
+
+## Spring Security
+
+Some actuator endpoints are secured with IP address restriction.
+
+Accessing http://localhost:8080/actuator/config will fail with `Access Denied` error whereas http://localhost:8080/actuator/config will return response.
