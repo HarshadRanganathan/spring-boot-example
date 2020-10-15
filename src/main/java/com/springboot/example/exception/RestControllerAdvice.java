@@ -3,6 +3,7 @@ package com.springboot.example.exception;
 import com.springboot.example.model.CustomError;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -29,7 +30,8 @@ public class RestControllerAdvice extends ResponseEntityExceptionHandler  {
     ResponseEntity<?> handleControllerException(Exception exception, HttpServletRequest httpServletRequest) {
         log.error(exception.getMessage(), exception);
         HttpStatus status = getStatus(httpServletRequest);
-        return new ResponseEntity<Object>(new CustomError("1000", "Server error"), status);
+        return ResponseEntity.status(status).contentType(MediaType.APPLICATION_JSON)
+                .body(new CustomError("1000", "Server error"));
     }
 
     private HttpStatus getStatus(HttpServletRequest request) {

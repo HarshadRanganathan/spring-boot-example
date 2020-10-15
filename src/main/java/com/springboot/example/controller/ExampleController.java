@@ -6,6 +6,7 @@ import com.springboot.example.service.BackendService;
 import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +38,7 @@ public class ExampleController {
     ResponseEntity<?> person() {
         log.debug("Request received");
         final Person person = new Person("Harshad", "Ranganathan");
-        return ResponseEntity.ok(person);
+        return ResponseEntity.status(HttpStatus.OK).body(person);
     }
 
     @GetMapping("/err")

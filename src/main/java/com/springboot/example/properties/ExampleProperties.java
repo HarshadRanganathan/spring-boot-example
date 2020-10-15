@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Validated
@@ -17,6 +18,7 @@ import javax.validation.constraints.NotEmpty;
 public class ExampleProperties {
 
     @Valid
+    @NotNull
     private final Backend backend;
 
     @Getter
