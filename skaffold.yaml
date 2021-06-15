@@ -1,0 +1,25 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+metadata:
+  name: k8s-spring-boot-example
+build:
+  artifacts:
+    - image: localhost:5000/apps/spring-boot-example
+#      custom:
+#        buildCommand: ./mvnw spring-boot:build-image -D spring-boot.build-image.imageName=$IMAGE && docker push $IMAGE
+      buildpacks:
+        builder: docker.io/paketobuildpacks/builder:base
+        dependencies:
+          paths:
+            - src
+            - pom.xml
+deploy:
+  kubectl:
+    manifests:
+      - k8s/deployment.yaml
+      - k8s/service.yaml
+portForward:
+  - resourceType: service
+    resourceName: k8s-spring-boot-example
+    port: 80
+    localPort: 8080

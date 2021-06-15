@@ -1,25 +1,27 @@
-
 Table of Contents
 =================
 
-* [Pre-requisites](#pre-requisites)
-* [Commands](#commands)
-* [Profiles](#profiles)
-* [Paths](#paths)
-* [Logging](#logging)
-* [spring-boot-starter-web](#spring-boot-starter-web)
-* [spring-boot-starter-test](#spring-boot-starter-test)
-* [Actuator](#actuator)
-* [Spring Cloud Contract](#spring-cloud-contract)
-* [Spring Security](#spring-security)
-* [Kubernetes](#kubernetes)
+* [Table of Contents](#table-of-contents)
+  * [Pre-requisites](#pre-requisites)
+  * [Commands](#commands)
+  * [Profiles](#profiles)
+  * [Paths](#paths)
+  * [Logging](#logging)
+  * [Dependencies](#dependencies)
+    * [spring-boot-starter-web](#spring-boot-starter-web)
+    * [spring-boot-starter-test](#spring-boot-starter-test)
+  * [Actuator](#actuator)
+  * [Spring Cloud Contract](#spring-cloud-contract)
+  * [Spring Security](#spring-security)
+  * [Kubernetes](#kubernetes)
     * [Kind Cluster](#kind-cluster)
-    * [Build Docker Image](#build-docker-image)
-    * [Push Docker Image](#push-docker-image)
-    * [Apply Manifest Files](#apply-manifest-files)
-    * [Port Forward](#port-forward)
-
-
+    * [Approach 1 (Manifest Files)](#approach-1-manifest-files)
+      * [Build Docker Image](#build-docker-image)
+      * [Push Docker Image](#push-docker-image)
+      * [Apply Manifest Files](#apply-manifest-files)
+      * [Port Forward](#port-forward)
+    * [Approach 2 (Skaffold)](#approach-2-skaffold)
+      * [Skaffold](#skaffold)
 ## Pre-requisites
 
 This project uses `lombok` dependency and requires `lombok` plugin to be installed from marketplace to resolve IDE compilation issues.
@@ -43,13 +45,15 @@ Set jvm property `-Dspring.profiles.active=prod` to use `application-prod.proper
 
 ## Paths
 
-Check ``ExampleController`` class for list of supported paths.
+Check ``ExampleController`` class for list of supported API paths.
 
 ## Logging
 
 Set jvm property `-Dlogging.level.com.springboot.example=debug` to override and enable debug logs for the class.
 
-## spring-boot-starter-web
+## Dependencies
+
+### spring-boot-starter-web
 
 Includes below dependencies:
 
@@ -60,7 +64,7 @@ Includes below dependencies:
 - slf4j, log4j, logback
 - yaml
 
-## spring-boot-starter-test
+### spring-boot-starter-test
 
 Includes below dependencies:
 
@@ -129,7 +133,9 @@ Set kubectl context to "kind-kind"
 You can now use your cluster with:
 ```
 
-### Build Docker Image
+### Approach 1 (Manifest Files)
+
+#### Build Docker Image
 
 Build the image by specifying the registry address in the image name:
 
@@ -141,7 +147,7 @@ Build the image by specifying the registry address in the image name:
 ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=localhost:5000/apps/spring-boot-example
 ```
 
-### Push Docker Image
+#### Push Docker Image
 
 Push the image to the local registry:
 
@@ -149,7 +155,7 @@ Push the image to the local registry:
 docker push localhost:5000/apps/spring-boot-example
 ```
 
-### Apply Manifest Files
+#### Apply Manifest Files
 
 Apply the manifest files to create the deployment and service components:
 
@@ -176,10 +182,28 @@ NAME                                                 DESIRED   CURRENT   READY  
 replicaset.apps/k8s-spring-boot-example-775fcbf645   1         1         1       13s
 ```
 
-### Port Forward
+#### Port Forward
 
 To access the app, port forward to the service:
 
 ```
 kubectl port-forward service/k8s-spring-boot-example 8080:80
+```
+
+### Approach 2 (Skaffold)
+
+Skaffold makes some enhancements to our development workflow when using Kubernetes
+
+Build the app and create the container (buildpacks)
+Push the container to the registry (Docker)
+Apply the deployment and service YAMLs
+Stream the logs from the Pod to your terminal
+Automatically set up port forwarding
+
+#### Skaffold
+
+Run the following command to have Skaffold build and deploy our application to Kubernetes.
+
+```
+skaffold dev --port-forward
 ```
