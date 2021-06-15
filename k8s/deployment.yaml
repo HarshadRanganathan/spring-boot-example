@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: k8s-spring-boot-example
+  name: k8s-spring-boot-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-spring-boot-example
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: k8s-spring-boot-example
+    spec:
+      containers:
+      - image: localhost:5000/apps/spring-boot-example
+        name: k8s-spring-boot-example
+        resources: {}
+status: {}
