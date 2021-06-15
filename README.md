@@ -134,6 +134,10 @@ You can now use your cluster with:
 Build the image by specifying the registry address in the image name:
 
 ```
+# image name defined in pom
+./mvnw spring-boot:build-image
+
+# alternatively
 ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=localhost:5000/apps/spring-boot-example
 ```
 
