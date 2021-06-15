@@ -11,6 +11,8 @@ This project uses `lombok` dependency and requires `lombok` plugin to be install
 |./mvnw clean spring-boot:run --debug |Start the application with debug logs for a selection of core loggers and logs a conditions report to the console |
 |./mvnw clean package |Build the jar |
 |java -jar target/spring-boot-example-1.0-SNAPSHOT.jar |Run packaged application |
+|./mvnw spring-boot:build-image |Build docker image using buildpacks |
+|docker run --name spring-boot-example -p 8080:8080 spring-boot-example:1.0-SNAPSHOT |Run docker container |
 
 ## Profiles
 
