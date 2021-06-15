@@ -4,15 +4,13 @@ This project uses `lombok` dependency and requires `lombok` plugin to be install
 
 ## Commands
 
-Type `mvn clean install` to build the project.
-
-Type `mvn clean spring-boot:run` from the root project directory to start the application.
-
-Type `mvn clean spring-boot:run --debug` from the root project directory to start the application with debug logs for a selection of core loggers and logs a conditions report to the console.
-
-Type `mvn clean package` to build the jar.
-
-Type `java -jar target/spring-boot-example-1.0-SNAPSHOT.jar` to run the packaged application.
+|Command |Purpose |
+|---|---|
+|./mvnw clean install |Build the project |
+|./mvnw clean spring-boot:run |Start the application |
+|./mvnw clean spring-boot:run --debug |Start the application with debug logs for a selection of core loggers and logs a conditions report to the console |
+|./mvnw clean package |Build the jar |
+|java -jar target/spring-boot-example-1.0-SNAPSHOT.jar |Run packaged application |
 
 ## Profiles
 
