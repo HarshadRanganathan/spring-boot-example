@@ -17,6 +17,7 @@
         <maven.resources.plugin.version>2.7</maven.resources.plugin.version>
         <git.commit.plugin.version>4.0.0</git.commit.plugin.version>
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+        <micrometer.version>1.7.0</micrometer.version>
         <spring-boot.build-image.imageName>localhost:5000/apps/spring-boot-example</spring-boot.build-image.imageName>
     </properties>
 
@@ -115,6 +116,12 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>${micrometer.version}</version>
         </dependency>
     </dependencies>
 

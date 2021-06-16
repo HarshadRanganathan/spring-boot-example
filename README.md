@@ -102,6 +102,10 @@ Get metrics for an endpoint:
 
 ``http://localhost:8080/actuator/metrics/http.server.requests?tag=uri:/``
 
+Get prometheus metrics:
+
+``http://localhost:8080/actuator/prometheus``
+
 ## Spring Cloud Contract
 
 Spring cloud contracts are available in `test/resources/contracts` folder.
