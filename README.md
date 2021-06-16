@@ -1,3 +1,4 @@
+
 Table of Contents
 =================
 
@@ -22,6 +23,8 @@ Table of Contents
       * [Port Forward](#port-forward)
     * [Approach 2 (Skaffold)](#approach-2-skaffold)
       * [Skaffold](#skaffold)
+      * [Remote Debug](#remote-debug)
+  
 ## Pre-requisites
 
 This project uses `lombok` dependency and requires `lombok` plugin to be installed from marketplace to resolve IDE compilation issues.
@@ -207,3 +210,17 @@ Run the following command to have Skaffold build and deploy our application to K
 ```
 skaffold dev --port-forward
 ```
+
+#### Remote Debug
+
+To remote debug the application, run below skaffold command:
+
+```
+skaffold debug --port-forward 
+```
+
+Create a remote debug profile in your IDE. 
+
+![scaffold-remote-debug-intellij](images/scaffold-remote-debug-intellij.png?raw=true)
+
+Run in debug mode to attach to the remote port. Add a breakpoint to the code and make a request to start debugging.
