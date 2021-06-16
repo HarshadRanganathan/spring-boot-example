@@ -197,11 +197,11 @@ kubectl port-forward service/k8s-spring-boot-example 8080:80
 
 Skaffold makes some enhancements to our development workflow when using Kubernetes
 
-Build the app and create the container (buildpacks)
-Push the container to the registry (Docker)
-Apply the deployment and service YAMLs
-Stream the logs from the Pod to your terminal
-Automatically set up port forwarding
+- Build the app and create the container (buildpacks)
+- Push the container to the registry (Docker)
+- Apply the deployment and service YAMLs
+- Stream the logs from the Pod to your terminal
+- Automatically set up port forwarding
 
 #### Skaffold
 
@@ -224,3 +224,24 @@ Create a remote debug profile in your IDE.
 ![scaffold-remote-debug-intellij](images/scaffold-remote-debug-intellij.png?raw=true)
 
 Run in debug mode to attach to the remote port. Add a breakpoint to the code and make a request to start debugging.
+
+### Approach 3 (Kustomize)
+
+Kustomize allows us to customize deployments to different environments.
+
+We can start with a base set of resources and then apply customizations on top of those.
+
+Features
+
+- Allows easier deployments to different environments/providers
+- Allows you to keep all the common properties in one place
+- Generate configuration for specific environments
+- No templates, no placeholder spaghetti, no environment variable overload
+
+#### Kustomize
+
+Run below command to build QA customization with replica count as '2'
+
+```
+kustomize build kustomize/qa | kubectl apply -f -
+```

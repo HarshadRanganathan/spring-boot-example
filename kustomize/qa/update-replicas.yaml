@@ -1,0 +1,6 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-spring-boot-example
+spec:
+  replicas: 2
