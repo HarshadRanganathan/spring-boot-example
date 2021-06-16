@@ -1,4 +1,3 @@
-
 Table of Contents
 =================
 
@@ -24,6 +23,9 @@ Table of Contents
     * [Approach 2 (Skaffold)](#approach-2-skaffold)
       * [Skaffold](#skaffold)
       * [Remote Debug](#remote-debug)
+    * [Approach 3 (Kustomize)](#approach-3-kustomize)
+      * [Kustomize](#kustomize)
+    * [Approach 4 (Scaffold + Kustomize)](#approach-4-scaffold--kustomize)
   
 ## Pre-requisites
 
@@ -244,4 +246,12 @@ Run below command to build QA customization with replica count as '2'
 
 ```
 kustomize build kustomize/qa | kubectl apply -f -
+```
+
+### Approach 4 (Scaffold + Kustomize)
+
+Run below command to use Kustomize files with Scaffold:
+
+```
+skaffold dev -f skaffold-kustomize.yaml -p qa --port-forward
 ```
