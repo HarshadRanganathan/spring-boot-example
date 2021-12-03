@@ -10,14 +10,14 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
         <spring.boot.version>2.5.1</spring.boot.version>
         <spring.cloud.version>Hoxton.SR11</spring.cloud.version>
-        <lombok.version>1.18.12</lombok.version>
+        <lombok.version>1.18.22</lombok.version>
         <maven.resources.plugin.version>2.7</maven.resources.plugin.version>
-        <git.commit.plugin.version>4.0.0</git.commit.plugin.version>
+        <git.commit.plugin.version>5.0.0</git.commit.plugin.version>
+        <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
-        <micrometer.version>1.7.0</micrometer.version>
+        <micrometer.version>1.8.0</micrometer.version>
         <spring-boot.build-image.imageName>localhost:5000/apps/spring-boot-example</spring-boot.build-image.imageName>
     </properties>
 
@@ -161,8 +161,8 @@
             <!-- generates git.properties file containing information about the state of your git source code repository when the project was built
             GitProperties bean in spring boot will display this information in actuator info endpoint -->
             <plugin>
-                <groupId>pl.project13.maven</groupId>
-                <artifactId>git-commit-id-plugin</artifactId>
+                <groupId>io.github.git-commit-id</groupId>
+                <artifactId>git-commit-id-maven-plugin</artifactId>
                 <version>${git.commit.plugin.version}</version>
                 <executions>
                     <execution>
@@ -218,9 +218,9 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <release>11</release>
                 </configuration>
             </plugin>
 

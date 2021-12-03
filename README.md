@@ -118,7 +118,7 @@ When you run maven build, the contract test class will be created in `generated-
 
 Some actuator endpoints are secured with IP address restriction.
 
-Accessing http://localhost:8080/actuator/config will fail with `Access Denied` error whereas http://localhost:8080/actuator/config will return response.
+Accessing http://localhost:8080/actuator/config will fail with `Access Denied` error whereas http://127.0.0.1:8080/actuator/config will return response.
 
 ## Kubernetes
 
