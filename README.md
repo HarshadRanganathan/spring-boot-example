@@ -13,6 +13,7 @@ Table of Contents
   * [Actuator](#actuator)
   * [Spring Cloud Contract](#spring-cloud-contract)
   * [Spring Security](#spring-security)
+  * [Containerizing Apps](#containerizing-apps)
   * [Kubernetes](#kubernetes)
     * [Kind Cluster](#kind-cluster)
     * [Approach 1 (Manifest Files)](#approach-1-manifest-files)
@@ -33,17 +34,17 @@ This project uses `lombok` dependency and requires `lombok` plugin to be install
 
 ## Commands
 
-| Command                                                                                                   | Purpose                                                                                                           |
-|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| ./mvnw clean install                                                                                      | Build the project                                                                                                 |
-| ./mvnw clean spring-boot:run                                                                              | Start the application                                                                                             |
-| ./mvnw clean spring-boot:run --debug                                                                      | Start the application with debug logs for a selection of core loggers and logs a conditions report to the console |
-| ./mvnw clean package                                                                                      | Build the jar                                                                                                     |
-| java -jar target/spring-boot-example-1.0-SNAPSHOT.jar                                                     | Run packaged application                                                                                          |
-| ./mvnw spring-boot:build-image                                                                            | Build docker image using buildpacks                                                                               |
-| docker build -t registry:5000/apps/spring-boot-example .                                                                                        | Build docker image using Dockerfile                                                                               |
-| ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=registry:5000/apps/spring-boot-example | Build docker image with provided image name                                                                       |
-| docker run --name spring-boot-example -p 8080:8080 spring-boot-example:1.0-SNAPSHOT                       | Run docker container                                                                                              |
+| Command                                                                                | Purpose                                                                                                           |
+|----------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| ./mvnw clean install                                                                   | Build the project                                                                                                 |
+| ./mvnw clean spring-boot:run                                                           | Start the application                                                                                             |
+| ./mvnw clean spring-boot:run --debug                                                   | Start the application with debug logs for a selection of core loggers and logs a conditions report to the console |
+| ./mvnw clean package                                                                   | Build the jar                                                                                                     |
+| java -jar target/spring-boot-example-1.0-SNAPSHOT.jar                                  | Run packaged application                                                                                          |
+| ./mvnw spring-boot:build-image                                                         | Build docker image using buildpacks                                                                               |
+| ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=spring-boot-example | Build docker image with provided image name                                                                       |
+| docker build -t spring-boot-example .                                                  | Build docker image using Dockerfile                                                                               |
+| docker run --name spring-boot-example -p 8080:8080 spring-boot-example:latest          | Run docker container                                                                                              |
 
 ## Profiles
 
@@ -120,6 +121,15 @@ When you run maven build, the contract test class will be created in `generated-
 Some actuator endpoints are secured with IP address restriction.
 
 Accessing http://localhost:8080/actuator/config will fail with `Access Denied` error whereas http://127.0.0.1:8080/actuator/config will return response.
+
+## Containerizing Apps
+
+There are multiple ways to containerize your app.
+
+| Approach                                                     | Image Size | Comments                                                                                                                                                                                                                                                                                        |
+|--------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Paketo Buildpacks                                            | ~270 MB   |                                                                                                                                                                                                                                                                                                 |
+| Dockerfile - jlink module approach with debian as base image | ~150 MB   | - jlink helps to create a custom runtime with only the required modules<br/>- Using debian as base image has following advantages<br/>1. presence of libc<br/>2. performance issues of Alpine for certian programming languages<br/>3. suitable for testing with tools available out of the box |
 
 ## Kubernetes
 
