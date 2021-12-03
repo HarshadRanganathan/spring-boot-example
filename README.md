@@ -33,16 +33,17 @@ This project uses `lombok` dependency and requires `lombok` plugin to be install
 
 ## Commands
 
-|Command |Purpose |
-|---|---|
-|./mvnw clean install |Build the project |
-|./mvnw clean spring-boot:run |Start the application |
-|./mvnw clean spring-boot:run --debug |Start the application with debug logs for a selection of core loggers and logs a conditions report to the console |
-|./mvnw clean package |Build the jar |
-|java -jar target/spring-boot-example-1.0-SNAPSHOT.jar |Run packaged application |
-|./mvnw spring-boot:build-image |Build docker image using buildpacks |
-|./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=registry:5000/apps/spring-boot-example |Build docker image with provided image name |
-|docker run --name spring-boot-example -p 8080:8080 spring-boot-example:1.0-SNAPSHOT |Run docker container |
+| Command                                                                                                   | Purpose                                                                                                           |
+|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| ./mvnw clean install                                                                                      | Build the project                                                                                                 |
+| ./mvnw clean spring-boot:run                                                                              | Start the application                                                                                             |
+| ./mvnw clean spring-boot:run --debug                                                                      | Start the application with debug logs for a selection of core loggers and logs a conditions report to the console |
+| ./mvnw clean package                                                                                      | Build the jar                                                                                                     |
+| java -jar target/spring-boot-example-1.0-SNAPSHOT.jar                                                     | Run packaged application                                                                                          |
+| ./mvnw spring-boot:build-image                                                                            | Build docker image using buildpacks                                                                               |
+| docker build -t registry:5000/apps/spring-boot-example .                                                                                        | Build docker image using Dockerfile                                                                               |
+| ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=registry:5000/apps/spring-boot-example | Build docker image with provided image name                                                                       |
+| docker run --name spring-boot-example -p 8080:8080 spring-boot-example:1.0-SNAPSHOT                       | Run docker container                                                                                              |
 
 ## Profiles
 
