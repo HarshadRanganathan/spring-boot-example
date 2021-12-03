@@ -234,7 +234,7 @@ skaffold dev --port-forward
 To remote debug the application, run below skaffold command:
 
 ```
-skaffold debug --port-forward 
+skaffold debug --auto-sync --port-forward 
 ```
 
 Create a remote debug profile in your IDE. 
