@@ -43,5 +43,11 @@ spec:
                 - sh
                 - '-c'
                 - sleep 10
-        resources: {}
+        resources:
+          limits:
+            cpu: 500m
+            memory: 2Gi
+          requests:
+            cpu: 125m
+            memory: 512Mi
 status: {}
