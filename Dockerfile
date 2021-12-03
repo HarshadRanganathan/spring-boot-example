@@ -8,13 +8,29 @@ RUN $JAVA_HOME/bin/jlink \
          --compress=2 \
          --output /javaruntime
 
+FROM debian:buster-slim as app-build
+
+ENV JAVA_HOME=/opt/jdk
+ENV PATH "${JAVA_HOME}/bin:${PATH}"
+
+WORKDIR application
+
+COPY --from=jre-build /javaruntime $JAVA_HOME
+COPY target/spring-boot-*.jar application.jar
+
+RUN java -Djarmode=layertools -jar application.jar extract
+
 FROM debian:buster-slim
 
 ENV JAVA_HOME=/opt/jdk
 ENV PATH "${JAVA_HOME}/bin:${PATH}"
 
-COPY --from=jre-build /javaruntime $JAVA_HOME
+WORKDIR application
 
-RUN mkdir /opt/app
-COPY target/spring-boot-*.jar /opt/app/app.jar
-CMD ["java", "-jar", "-Dspring.profiles.active=prod", "/opt/app/app.jar"]
+COPY --from=jre-build /javaruntime $JAVA_HOME
+COPY --from=app-build application/dependencies/ ./
+COPY --from=app-build application/spring-boot-loader/ ./
+COPY --from=app-build application/snapshot-dependencies/ ./
+COPY --from=app-build application/application/ ./
+
+ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
