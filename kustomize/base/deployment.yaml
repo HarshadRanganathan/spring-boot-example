@@ -20,14 +20,22 @@ spec:
       containers:
       - image: localhost:5000/apps/spring-boot-example
         name: k8s-spring-boot-example
+        startupProbe:
+          httpGet:
+            port: 8080
+            path: /actuator/health
+          timeoutSeconds: 10
+          failureThreshold: 30
         readinessProbe:
           httpGet:
             port: 8080
             path: /actuator/health/readiness
+          timeoutSeconds: 10
         livenessProbe:
           httpGet:
             port: 8080
             path: /actuator/health/liveness
+          timeoutSeconds: 10
         lifecycle:
           preStop:
             exec:
