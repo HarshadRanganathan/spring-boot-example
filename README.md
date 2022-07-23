@@ -45,6 +45,7 @@ This project uses `lombok` dependency and requires `lombok` plugin to be install
 | ./mvnw spring-boot:build-image                                                         | Build docker image using buildpacks                                                                               |
 | ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=spring-boot-example | Build docker image with provided image name                                                                       |
 | docker build -t spring-boot-example .                                                  | Build docker image using Dockerfile                                                                               |
+| ./mvnw compile jib:dockerBuild -Dimage=spring-boot-example                             | Build docker image using jib                                                                                      |
 | docker run --name spring-boot-example -p 8080:8080 spring-boot-example:latest          | Run docker container                                                                                              |
 
 ## Profiles
