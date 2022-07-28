@@ -205,6 +205,7 @@
                 <configuration>
                     <image>
                         <env>
+                            <!-- Used by Paketo Buildpacks to choose correct runtime version -->
                             <BP_JVM_VERSION>${java.version}</BP_JVM_VERSION>
                         </env>
                     </image>
@@ -246,6 +247,8 @@
                 </configuration>
             </plugin>
 
+            <!--  Enforcer plugin provides goals to control certain environmental constraints
+            such as Maven version, JDK version -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
