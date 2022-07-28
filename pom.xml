@@ -10,14 +10,17 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
         <spring.boot.version>2.7.2</spring.boot.version>
         <spring.cloud.version>2021.0.3</spring.cloud.version>
         <lombok.version>1.18.24</lombok.version>
-        <maven.resources.plugin.version>3.2.0</maven.resources.plugin.version>
-        <git.commit.plugin.version>5.0.0</git.commit.plugin.version>
-        <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
         <micrometer.version>1.9.2</micrometer.version>
+        <maven.resources.plugin.version>3.2.0</maven.resources.plugin.version>
+        <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+        <maven.enforcer.plugin.version>3.1.0</maven.enforcer.plugin.version>
+        <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
+        <git.commit.plugin.version>5.0.0</git.commit.plugin.version>
         <spring-boot.build-image.imageName>spring-boot-example</spring-boot.build-image.imageName>
     </properties>
 
@@ -202,7 +205,7 @@
                 <configuration>
                     <image>
                         <env>
-                            <BP_JVM_VERSION>11</BP_JVM_VERSION>
+                            <BP_JVM_VERSION>${java.version}</BP_JVM_VERSION>
                         </env>
                     </image>
                 </configuration>
@@ -239,10 +242,31 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin.version}</version>
                 <configuration>
-                    <release>11</release>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven.enforcer.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>enforce-plugin-versions</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireJavaVersion>
+                                    <version>[${java.version},)</version>
+                                </requireJavaVersion>
+                                <banDuplicatePomDependencyVersions/>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     
