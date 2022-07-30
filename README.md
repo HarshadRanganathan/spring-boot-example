@@ -129,9 +129,17 @@ Accessing http://localhost:8080/actuator/config will fail with `Access Denied` e
 There are multiple ways to containerize your app.
 
 | Approach                                                     | Image Size | Comments                                                                                                                                                                                                                                                                                        |
-|--------------------------------------------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Paketo Buildpacks                                            | ~270 MB   |                                                                                                                                                                                                                                                                                                 |
-| Dockerfile - jlink module approach with debian as base image | ~150 MB   | - jlink helps to create a custom runtime with only the required modules<br/>- Using debian as base image has following advantages<br/>1. presence of libc<br/>2. performance issues of Alpine for certian programming languages<br/>3. suitable for testing with tools available out of the box |
+|--------------------------------------------------------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Paketo Buildpacks                                            | ~270 MB    |                                                                                                                                                                                                                                                                                                 |
+| Jib                                                          | ~260 MB    | Jib builds optimized Docker and OCI images for your Java applications without a Docker daemon                                                                                                                                                                                                   |
+| Dockerfile - jlink module approach with debian as base image | ~150 MB    | - jlink helps to create a custom runtime with only the required modules<br/>- Using debian as base image has following advantages<br/>1. presence of libc<br/>2. performance issues of Alpine for certian programming languages<br/>3. suitable for testing with tools available out of the box |
+
+For Dockerfile approach, you can get the necessary JDK modules needed to run your application with below command:
+
+```bash
+jdeps --ignore-missing-deps -q -recursive --multi-release 11 --print-module-deps --class-path 'target/libs/*' target/spring-boot-example-1.0-SNAPSHOT.jar > jre-deps
+.info
+```
 
 ## Kubernetes
 
