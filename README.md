@@ -44,7 +44,9 @@ Table of Contents
 |Containerization |Dockerfile |✅ |
 | |Buildpacks |✅ |
 | |Jib |✅ |
-|Kubernetes |Skaffold | ✅|
+|Kubernetes |k8s YAML Files | ✅|
+| |Kind | ✅|
+| |Skaffold | ✅|
 | |Kustomize | ✅|
 |Prometheus |Micrometer | ✅|
   
