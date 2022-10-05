@@ -29,17 +29,25 @@ spec:
             port: 8080
             path: /actuator/health
           timeoutSeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
           failureThreshold: 30
         readinessProbe:
           httpGet:
             port: 8080
             path: /actuator/health/readiness
           timeoutSeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
         livenessProbe:
           httpGet:
             port: 8080
             path: /actuator/health/liveness
           timeoutSeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
         lifecycle:
           preStop:
             exec:
