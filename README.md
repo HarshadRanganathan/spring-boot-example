@@ -33,6 +33,7 @@ Table of Contents
 
 | | | |
 |--|--|--|
+|Java |JRE 11 |✅ |
 |Spring |Spring Cloud Contract |✅ |
 | |Actuator |✅ |
 | |Spring Security |✅ |
