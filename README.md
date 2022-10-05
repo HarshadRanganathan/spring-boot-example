@@ -49,6 +49,7 @@ Table of Contents
 |Kubernetes |k8s YAML Files | ✅|
 | |Startup, Liveness & Readiness Probes | ✅|
 | |Graceful Shutdown | ✅|
+| |Rolling Deployments | ✅|
 | |Kind | ✅|
 | |Skaffold | ✅|
 | |Kustomize | ✅|
