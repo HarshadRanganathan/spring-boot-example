@@ -57,9 +57,9 @@ spec:
                 - sleep 10
         resources:
           limits:
-            memory: 2Gi
+            memory: 1024Mi
           requests:
             cpu: 125m
-            memory: 512Mi
+            memory: 1024Mi
       terminationGracePeriodSeconds: 45
 status: {}
