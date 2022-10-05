@@ -50,4 +50,5 @@ spec:
           requests:
             cpu: 125m
             memory: 512Mi
+      terminationGracePeriodSeconds: 45
 status: {}
