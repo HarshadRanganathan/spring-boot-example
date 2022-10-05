@@ -48,6 +48,7 @@ Table of Contents
 | |Jib |✅ |
 |Kubernetes |k8s YAML Files | ✅|
 | |Startup, Liveness & Readiness Probes | ✅|
+| |Graceful Shutdown | ✅|
 | |Kind | ✅|
 | |Skaffold | ✅|
 | |Kustomize | ✅|
