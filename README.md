@@ -52,7 +52,7 @@ Table of Contents
 | |Kind | ✅|
 | |Skaffold | ✅|
 | |Kustomize | ✅|
-|Prometheus |Micrometer | ✅|
+|Monitoring |Micrometer Prometheus | ✅|
 |Logging |Logback | ✅|
   
 ## Pre-requisites
