@@ -33,10 +33,14 @@ Table of Contents
 
 | | | |
 |--|--|--|
+|Spring |Spring Cloud Contract |✅ |
 |Maven |Enforcer Plugin |✅ |
 | |Git Commit Id Plugin |✅ |
+|Containerization |Buildpacks |✅ |
+| |Jib |✅ |
 |Kubernetes |Skaffold | ✅|
 | |Kustomize | ✅|
+|Prometheus |Micrometer | ✅|
   
 ## Pre-requisites
 
