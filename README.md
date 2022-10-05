@@ -27,6 +27,16 @@ Table of Contents
     * [Approach 3 (Kustomize)](#approach-3-kustomize)
       * [Kustomize](#kustomize)
     * [Approach 4 (Scaffold + Kustomize)](#approach-4-scaffold--kustomize)
+    
+    
+## Features
+
+| | | |
+|--|--|--|
+|Maven |Enforcer Plugin |✅ |
+| |Git Commit Id Plugin |✅ |
+|Kubernetes |Skaffold | ✅|
+| |Kustomize | ✅|
   
 ## Pre-requisites
 
