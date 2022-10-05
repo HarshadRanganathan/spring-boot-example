@@ -34,6 +34,9 @@ Table of Contents
 | | | |
 |--|--|--|
 |Spring |Spring Cloud Contract |✅ |
+| |Actuator |✅ |
+| |Spring Security |✅ |
+| |Junit 5 |✅ |
 | |Devtools |✅ |
 |Maven |Wrapper Script |✅ |
 | |Enforcer Plugin |✅ |
