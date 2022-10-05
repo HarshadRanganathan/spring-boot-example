@@ -38,6 +38,7 @@ Table of Contents
 | |Spring Security |✅ |
 | |Junit 5 |✅ |
 | |Devtools |✅ |
+| |RestTemplate |✅ |
 |Maven |Wrapper Script |✅ |
 | |Enforcer Plugin |✅ |
 | |Git Commit Id Plugin |✅ |
@@ -45,10 +46,12 @@ Table of Contents
 | |Buildpacks |✅ |
 | |Jib |✅ |
 |Kubernetes |k8s YAML Files | ✅|
+| |Startup, Liveness & Readiness Probes | ✅|
 | |Kind | ✅|
 | |Skaffold | ✅|
 | |Kustomize | ✅|
 |Prometheus |Micrometer | ✅|
+|Logging |Logback | ✅|
   
 ## Pre-requisites
 
