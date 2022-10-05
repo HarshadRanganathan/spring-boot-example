@@ -27,6 +27,32 @@ Table of Contents
     * [Approach 3 (Kustomize)](#approach-3-kustomize)
       * [Kustomize](#kustomize)
     * [Approach 4 (Scaffold + Kustomize)](#approach-4-scaffold--kustomize)
+    
+    
+## Features
+
+| | | |
+|--|--|--|
+|Java |JRE 11 |✅ |
+|Spring |Spring Cloud Contract |✅ |
+| |Actuator |✅ |
+| |Spring Security |✅ |
+| |Junit 5 |✅ |
+| |Devtools |✅ |
+| |RestTemplate |✅ |
+|Maven |Wrapper Script |✅ |
+| |Enforcer Plugin |✅ |
+| |Git Commit Id Plugin |✅ |
+|Containerization |Dockerfile |✅ |
+| |Buildpacks |✅ |
+| |Jib |✅ |
+|Kubernetes |k8s YAML Files | ✅|
+| |Startup, Liveness & Readiness Probes | ✅|
+| |Kind | ✅|
+| |Skaffold | ✅|
+| |Kustomize | ✅|
+|Prometheus |Micrometer | ✅|
+|Logging |Logback | ✅|
   
 ## Pre-requisites
 
