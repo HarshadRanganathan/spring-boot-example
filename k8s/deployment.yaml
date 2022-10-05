@@ -10,7 +10,11 @@ spec:
   selector:
     matchLabels:
       app: k8s-spring-boot-example
-  strategy: {}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   template:
     metadata:
       creationTimestamp: null
@@ -45,7 +49,6 @@ spec:
                 - sleep 10
         resources:
           limits:
-            cpu: 500m
             memory: 2Gi
           requests:
             cpu: 125m
