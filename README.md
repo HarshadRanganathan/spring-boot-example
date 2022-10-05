@@ -34,9 +34,12 @@ Table of Contents
 | | | |
 |--|--|--|
 |Spring |Spring Cloud Contract |✅ |
-|Maven |Enforcer Plugin |✅ |
+| |Devtools |✅ |
+|Maven |Wrapper Script |✅ |
+| |Enforcer Plugin |✅ |
 | |Git Commit Id Plugin |✅ |
-|Containerization |Buildpacks |✅ |
+|Containerization |Dockerfile |✅ |
+| |Buildpacks |✅ |
 | |Jib |✅ |
 |Kubernetes |Skaffold | ✅|
 | |Kustomize | ✅|
