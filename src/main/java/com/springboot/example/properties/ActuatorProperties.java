@@ -2,15 +2,13 @@ package com.springboot.example.properties;
 
 import lombok.Getter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConstructorBinding;
 import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 @Getter
 @Validated
-@ConstructorBinding
 @ConfigurationProperties(prefix = "actuator")
 public class ActuatorProperties {
 
