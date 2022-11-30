@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11 as jre-build
+FROM eclipse-temurin:17 as jre-build
 
 RUN $JAVA_HOME/bin/jlink \
          --add-modules java.base,java.naming,java.desktop,java.compiler,java.logging,java.instrument,java.management,java.security.jgss,java.sql,java.xml,java.rmi,jdk.charsets \
