@@ -165,8 +165,7 @@ There are multiple ways to containerize your app.
 For Dockerfile approach, you can get the necessary JDK modules needed to run your application with below command:
 
 ```bash
-jdeps --ignore-missing-deps -q -recursive --multi-release 11 --print-module-deps --class-path 'target/libs/*' target/spring-boot-example-1.0-SNAPSHOT.jar > jre-deps
-.info
+jdeps --ignore-missing-deps -q -recursive --multi-release 17 --print-module-deps --class-path 'target/libs/*' target/spring-boot-example-1.0-SNAPSHOT.jar > jre-deps.info
 ```
 
 ## Kubernetes
