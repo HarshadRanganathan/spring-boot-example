@@ -2,6 +2,7 @@ Table of Contents
 =================
 
 * [Table of Contents](#table-of-contents)
+  * [Features](#features)
   * [Pre-requisites](#pre-requisites)
   * [Commands](#commands)
   * [Profiles](#profiles)
@@ -27,34 +28,37 @@ Table of Contents
     * [Approach 3 (Kustomize)](#approach-3-kustomize)
       * [Kustomize](#kustomize)
     * [Approach 4 (Scaffold + Kustomize)](#approach-4-scaffold--kustomize)
+  * [Tools](#tools)
+    * [Ostara](#ostara)
     
     
 ## Features
 
-| | | |
-|--|--|--|
-|Java |JRE 17 |✅ |
-|Spring |Spring Cloud Contract |✅ |
-| |Actuator |✅ |
-| |Spring Security |✅ |
-| |Junit 5 |✅ |
-| |Devtools |✅ |
-| |RestTemplate |✅ |
-|Maven |Wrapper Script |✅ |
-| |Enforcer Plugin |✅ |
-| |Git Commit Id Plugin |✅ |
-|Containerization |Dockerfile |✅ |
-| |Buildpacks |✅ |
-| |Jib |✅ |
-|Kubernetes |k8s YAML Files | ✅|
-| |Startup, Liveness & Readiness Probes | ✅|
-| |Graceful Shutdown | ✅|
-| |Rolling Deployments | ✅|
-| |Kind | ✅|
-| |Skaffold | ✅|
-| |Kustomize | ✅|
-|Monitoring |Micrometer Prometheus | ✅|
-|Logging |Logback | ✅|
+| |                                      | |
+|--|--------------------------------------|--|
+|Java | JRE 17                               |✅ |
+|Spring | Spring Cloud Contract                |✅ |
+| | Actuator                             |✅ |
+| | Spring Security                      |✅ |
+| | Junit 5                              |✅ |
+| | Devtools                             |✅ |
+| | RestTemplate                         |✅ |
+|Maven | Wrapper Script                       |✅ |
+| | Enforcer Plugin                      |✅ |
+| | Git Commit Id Plugin                 |✅ |
+|Containerization | Dockerfile                           |✅ |
+| | Buildpacks                           |✅ |
+| | Jib                                  |✅ |
+|Kubernetes | k8s YAML Files                       | ✅|
+| | Startup, Liveness & Readiness Probes | ✅|
+| | Graceful Shutdown                    | ✅|
+| | Rolling Deployments                  | ✅|
+| | Kind                                 | ✅|
+| | Skaffold                             | ✅|
+| | Kustomize                            | ✅|
+|Monitoring | Micrometer Prometheus                | ✅|
+|Logging | Logback                              | ✅|
+| | Actuator LogLevel Runtime Update     | ✅|
   
 ## Pre-requisites
 
@@ -307,3 +311,19 @@ Run below command to use Kustomize files with Scaffold:
 ```
 skaffold dev -f skaffold-kustomize.yaml -p qa --port-forward
 ```
+
+## Tools
+
+### Ostara
+
+Ostara is a desktop application that provides various features to monitor and interact with Spring Boot Applications via Actuator.
+
+https://ostara.dev/
+
+Create an Instance in Ostara by adding below Actuator URL.
+
+![ostara-instance-configuration](images/ostara-instance-configuration.png?raw=true)
+
+You can view the dashboard, metrics and various features powered by Spring Boot Actuator endpoints.
+
+![ostara-dashboard.png](images/ostara-dashboard.png?raw=true)
