@@ -15,6 +15,10 @@ import org.springframework.security.web.util.matcher.IpAddressMatcher;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * If Spring Security is on the classpath and no other SecurityFilterChain bean is present, all actuators other than /health are secured by Spring Boot auto-configuration.
+ * If you define a custom SecurityFilterChain bean, Spring Boot auto-configuration backs off and lets you fully control the actuator access rules.
+ */
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfig {
@@ -24,6 +28,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
+                .csrf().disable() // disable csrf to allow POST, PUT, DELETE for actuator endpoints e.g. loggers
                 .authorizeHttpRequests((authz) -> authz
                         .requestMatchers("/**")
                         .access(
